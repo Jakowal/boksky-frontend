@@ -1,0 +1,174 @@
+<form class="filterContainer" [class.expanded]="filtersExpanded">
+
+  <div class="authorContainer">
+    <div class="sectionContainer">
+      <div class="labelContainer"><h2 class="sectionLabel">Forfatter</h2></div>
+      <section id="Author" class="filterSection" >
+        <app-search-field
+          [options]="authorNames"
+          [control]="authorControl"
+          [label]="'Forfatter'"
+          (onChange)="selectedAuthorName = $event"
+        />
+
+        <app-search-field
+          [options]="authorAlternateNames"
+          [control]="authorAlternateNamesControl"
+          [label]="'Alternativt navn'"
+          (onChange)="selectedAuthorAlternateName = $event"
+        />
+
+        <app-search-field
+          [options]="bookTitles"
+          [control]="bookTitlesControl"
+          [label]="'Tittel'"
+          (onChange)="selectedBookTitle = $event"
+        />
+      </section>
+    </div>
+
+    <div class="sectionContainer">
+      <div class="labelContainer"><h2 class="sectionLabel">Ekstra</h2></div>
+      <section id="PhysicalInfo" class="filterSection">
+        <mat-form-field >
+          <mat-label>Tilstand</mat-label>
+          <input matInput value="Sushi">
+        </mat-form-field>
+
+        <mat-form-field >
+          <mat-label>Kommentar</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+
+        <app-search-field
+          [options]="categories"
+          [control]="categoriesControl"
+          [label]="'Kategorier'"
+          (onChange)="selectedCategory = $event"
+        />
+      </section>
+    </div>
+  </div>
+
+  <div class="sectionContainer">
+    <div class="labelContainer"><h2 class="sectionLabel">Bok</h2></div>
+    <section id="Book" class="filterSection">
+      <app-search-field
+        [options]="publishers"
+        [control]="publishersControl"
+        [label]="'Utgiver'"
+        (onChange)="selectedPublisher = $event"
+      />
+
+      <app-search-field
+        [options]="editions"
+        [control]="editionsControl"
+        [label]="'Utgave'"
+        (onChange)="selectedEdition = $event"
+      />
+
+      <app-search-field
+        [options]="formats"
+        [control]="formatsControl"
+        [label]="'Format'"
+        (onChange)="selectedFormat = $event"
+      />
+
+      <mat-form-field appearance="fill">
+        <mat-label>Utgitt</mat-label>
+        <input matInput [matDatepicker]="publishedDatePicker">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="publishedDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #publishedDatePicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-checkbox class="example-margin">Førsteutgave</mat-checkbox>
+
+      <app-search-field
+        [options]="bindingTypes"
+        [control]="bindingTypesControl"
+        [label]="'Innbinding'"
+        (onChange)="selectedBindingType = $event"
+      />
+
+      <mat-form-field >
+        <mat-label>Utgiv. år</mat-label>
+        <input matInput value="Sushi">
+      </mat-form-field>
+
+
+      <mat-form-field >
+        <mat-label>Sideantall</mat-label>
+        <input matInput value="Sushi">
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Plassref.</mat-label>
+        <input matInput value="Sushi">
+      </mat-form-field>
+    </section>
+  </div>
+
+  <div class="sectionContainer">
+    <div class="labelContainer"><h2 class="sectionLabel">Kjøp/Salg</h2></div>
+    <section id="Value" class="filterSection">
+      <mat-form-field appearance="fill">
+        <mat-label>Kjøpsdato</mat-label>
+        <input matInput [matDatepicker]="purchaseDatePicker">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="purchaseDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #purchaseDatePicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Kjøpspris</mat-label>
+        <input matInput value="Sushi">
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Antatt verdi</mat-label>
+        <input matInput value="Sushi">
+      </mat-form-field>
+
+      <app-search-field
+        [options]="stores"
+        [control]="storesControl"
+        [label]="'Antikvariat'"
+        (onChange)="selectedStore = $event"
+      />
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Reg. dato</mat-label>
+        <input matInput [matDatepicker]="regDatePicker">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="regDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #regDatePicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Sist endret</mat-label>
+        <input matInput [matDatepicker]="lastChangePicker">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="lastChangePicker"></mat-datepicker-toggle>
+        <mat-datepicker #lastChangePicker></mat-datepicker>
+      </mat-form-field>
+
+      <section id="StatusField">
+        <mat-checkbox class="example-margin">Utlånt</mat-checkbox>
+
+        <mat-checkbox class="example-margin">Solgt</mat-checkbox>
+
+        <mat-checkbox class="example-margin">Bilde</mat-checkbox>
+        <app-search-field
+          [options]="regNumbers"
+          [control]="regNumbersControl"
+          [label]="'Reg.nr.'"
+          (onChange)="selectedRegNumber = $event"
+        />
+
+      </section>
+
+    </section>
+  </div>
+</form>

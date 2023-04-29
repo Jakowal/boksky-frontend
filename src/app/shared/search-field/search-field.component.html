@@ -1,0 +1,14 @@
+<mat-form-field appearance="fill">
+  <mat-label>{{label}}</mat-label>
+  <input type="text"
+    placeholder="Søk på {{label}}"
+    [attr.aria-label]="{label}"
+    matInput
+    [formControl]="control"
+    [matAutocomplete]="auto">
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
